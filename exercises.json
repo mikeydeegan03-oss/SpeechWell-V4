@@ -1,0 +1,148 @@
+{
+  "exercise_categories": {
+    "fluency": {
+      "name": "Fluency Exercises",
+      "description": "Exercises focused on rhythm, pacing, and smooth speech flow",
+      "target_skills": ["speech rate control", "rhythm", "smooth transitions", "breath support"]
+    },
+    "word_recall": {
+      "name": "Word Recall Exercises", 
+      "description": "Memory-based vocabulary and naming tasks",
+      "target_skills": ["word finding", "semantic memory", "category naming", "verbal fluency"]
+    },
+    "pronunciation": {
+      "name": "Pronunciation Exercises",
+      "description": "Articulation and clarity improvement drills",
+      "target_skills": ["consonant clarity", "vowel precision", "syllable stress", "sound discrimination"]
+    }
+  },
+  
+  "exercises": {
+    "fluency": [
+      {
+        "id": "fluency_001",
+        "title": "Controlled Rate Reading",
+        "difficulty": "beginner",
+        "duration_minutes": 3,
+        "instructions": "I'm going to give you a short sentence. Please repeat it back to me slowly and clearly, focusing on maintaining an even pace throughout. Take your time.",
+        "content": "The quick brown fox jumps over the lazy dog.",
+        "coaching_prompts": [
+          "Take a breath before you start",
+          "Focus on saying each word clearly",
+          "Don't rush - maintain steady pacing",
+          "Great job! Let's try it one more time"
+        ],
+        "assessment_criteria": ["speech rate consistency", "clarity", "breath support"]
+      },
+      {
+        "id": "fluency_002", 
+        "title": "Phrase Repetition with Rhythm",
+        "difficulty": "intermediate",
+        "duration_minutes": 4,
+        "instructions": "I'll say a phrase with a specific rhythm pattern. Listen carefully, then repeat it back matching my rhythm and pace.",
+        "content": "Walking... in the... morning... sunshine.",
+        "coaching_prompts": [
+          "Listen to the pauses I make",
+          "Match my rhythm exactly",
+          "Good! Now try to make it flow more smoothly",
+          "Excellent rhythm control"
+        ],
+        "assessment_criteria": ["rhythm matching", "pause placement", "flow improvement"]
+      }
+    ],
+    
+    "word_recall": [
+      {
+        "id": "recall_001",
+        "title": "Category Naming - Animals",
+        "difficulty": "beginner", 
+        "duration_minutes": 2,
+        "instructions": "I want you to name as many animals as you can think of. Take your time, and say each animal clearly. Ready?",
+        "content": "Animals",
+        "coaching_prompts": [
+          "Take your time thinking",
+          "Speak clearly for each animal",
+          "Great! Can you think of any more?",
+          "Excellent word finding!"
+        ],
+        "assessment_criteria": ["word retrieval speed", "category accuracy", "clarity of production"]
+      },
+      {
+        "id": "recall_002",
+        "title": "Semantic Fluency - Kitchen Items",
+        "difficulty": "intermediate",
+        "duration_minutes": 3,
+        "instructions": "Name things you would find in a kitchen. Try to think of at least 8 items. Speak each one clearly.",
+        "content": "Kitchen items",
+        "coaching_prompts": [
+          "Think about different areas of the kitchen",
+          "What do you use for cooking?",
+          "Don't forget about appliances",
+          "You're doing great with word finding"
+        ],
+        "assessment_criteria": ["semantic organization", "word retrieval", "response time"]
+      }
+    ],
+    
+    "pronunciation": [
+      {
+        "id": "pronunciation_001",
+        "title": "Consonant Practice - P, B, T, D",
+        "difficulty": "beginner",
+        "duration_minutes": 4,
+        "instructions": "We're going to practice clear consonant sounds. I'll give you word pairs. Repeat each word clearly, making sure the beginning sounds are distinct.",
+        "content": [
+          "Pat - Bat",
+          "Top - Drop", 
+          "Pie - Buy",
+          "Tin - Din"
+        ],
+        "coaching_prompts": [
+          "Make sure your lips come together firmly for P and B",
+          "Feel your tongue touch the roof of your mouth for T and D",
+          "Great distinction between those sounds!",
+          "Your articulation is improving"
+        ],
+        "assessment_criteria": ["consonant clarity", "sound distinction", "articulatory precision"]
+      },
+      {
+        "id": "pronunciation_002",
+        "title": "Vowel Clarity Practice",
+        "difficulty": "intermediate",
+        "duration_minutes": 3,
+        "instructions": "Let's work on clear vowel sounds. I'll give you word pairs that differ only in the vowel sound. Repeat each pair, making the vowel sounds very distinct.",
+        "content": [
+          "Beat - Bit",
+          "Coat - Cut", 
+          "Seat - Set",
+          "Boot - But"
+        ],
+        "coaching_prompts": [
+          "Open your mouth more for the first vowel",
+          "Feel the difference in your tongue position",
+          "Excellent vowel distinction!",
+          "Your vowel clarity is really improving"
+        ],
+        "assessment_criteria": ["vowel clarity", "sound differentiation", "mouth positioning"]
+      }
+    ]
+  },
+  
+  "difficulty_progression": {
+    "beginner": {
+      "description": "Simple, short exercises with clear instructions",
+      "target_duration": "2-4 minutes",
+      "success_criteria": "70% accuracy"
+    },
+    "intermediate": {
+      "description": "Moderate complexity with multiple components", 
+      "target_duration": "4-6 minutes",
+      "success_criteria": "80% accuracy"
+    },
+    "advanced": {
+      "description": "Complex exercises with challenging content",
+      "target_duration": "6-10 minutes", 
+      "success_criteria": "85% accuracy"
+    }
+  }
+}

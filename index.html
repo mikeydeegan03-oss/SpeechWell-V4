@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeechWell - Voice Agent</title>
+</head>
+<body>
+    <elevenlabs-convai agent-id="agent_8201k30y217yerkv9bzwekpsn5bt"></elevenlabs-convai>
+
+    <script
+        src="https://unpkg.com/@elevenlabs/convai-widget-embed"
+        async
+        type="text/javascript"
+        onload="console.log('ElevenLabs widget loaded')">
+    </script>
+
+    <script>
+        // Ensure proper audio context initialization
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait for user interaction before initializing audio context
+            document.addEventListener('click', function initAudio() {
+                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                if (audioContext.state === 'suspended') {
+                    audioContext.resume();
+                }
+                document.removeEventListener('click', initAudio);
+            }, { once: true });
+        });
+    </script>
+</body>
+</html>
