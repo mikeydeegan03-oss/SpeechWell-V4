@@ -1,148 +1,1132 @@
 {
-  "exercise_categories": {
-    "fluency": {
-      "name": "Fluency Exercises",
-      "description": "Exercises focused on rhythm, pacing, and smooth speech flow",
-      "target_skills": ["speech rate control", "rhythm", "smooth transitions", "breath support"]
-    },
-    "word_recall": {
-      "name": "Word Recall Exercises", 
-      "description": "Memory-based vocabulary and naming tasks",
-      "target_skills": ["word finding", "semantic memory", "category naming", "verbal fluency"]
-    },
-    "pronunciation": {
-      "name": "Pronunciation Exercises",
-      "description": "Articulation and clarity improvement drills",
-      "target_skills": ["consonant clarity", "vowel precision", "syllable stress", "sound discrimination"]
-    }
-  },
-  
-  "exercises": {
-    "fluency": [
-      {
-        "id": "fluency_001",
-        "title": "Controlled Rate Reading",
-        "difficulty": "beginner",
-        "duration_minutes": 3,
-        "instructions": "I'm going to give you a short sentence. Please repeat it back to me slowly and clearly, focusing on maintaining an even pace throughout. Take your time.",
-        "content": "The quick brown fox jumps over the lazy dog.",
-        "coaching_prompts": [
-          "Take a breath before you start",
-          "Focus on saying each word clearly",
-          "Don't rush - maintain steady pacing",
-          "Great job! Let's try it one more time"
-        ],
-        "assessment_criteria": ["speech rate consistency", "clarity", "breath support"]
+    "exercise_bank": {
+      "description": "Dysarthria speech therapy exercises for ElevenLabs Conversational AI - Reorganized by practical categories",
+      "total_exercises": 300,
+      "session_tracking": {
+        "current_session_completed": [],
+        "user_history": {},
+        "last_category_used": null,
+        "exercises_this_session": 0
       },
-      {
-        "id": "fluency_002", 
-        "title": "Phrase Repetition with Rhythm",
-        "difficulty": "intermediate",
-        "duration_minutes": 4,
-        "instructions": "I'll say a phrase with a specific rhythm pattern. Listen carefully, then repeat it back matching my rhythm and pace.",
-        "content": "Walking... in the... morning... sunshine.",
-        "coaching_prompts": [
-          "Listen to the pauses I make",
-          "Match my rhythm exactly",
-          "Good! Now try to make it flow more smoothly",
-          "Excellent rhythm control"
-        ],
-        "assessment_criteria": ["rhythm matching", "pause placement", "flow improvement"]
+      "categories": {
+        "everyday_scenarios": {
+          "name": "Everyday Scenarios",
+          "description": "Real-world communication situations for practical speech therapy application",
+          "targets": ["functional_communication", "real_world_application", "social_interaction", "daily_living_skills"],
+          "exercise_count": 100,
+          "exercises": [
+            {
+              "id": "ES_001",
+              "difficulty": 1,
+              "scenario": "coffee_shop_basic",
+              "title": "Simple Coffee Order",
+              "instruction": "Practice ordering coffee clearly and politely",
+              "content": "I would like a coffee, please. Medium size. With cream. Thank you.",
+              "communication_goal": "service_interaction",
+              "duration_seconds": 30,
+              "tips": "Speak slowly and clearly. Make eye contact if in person.",
+              "completed_count": 0,
+              "last_used": null,
+              "prerequisites": [],
+              "follow_up_exercises": ["ES_002", "ES_003"]
+            },
+            {
+              "id": "ES_002",
+              "difficulty": 2,
+              "scenario": "coffee_shop_detailed",
+              "title": "Detailed Coffee Order",
+              "instruction": "Order coffee with specific preferences and modifications",
+              "content": "Good morning. I'd like a large cappuccino with oat milk, one sugar, and could I get that extra hot please?",
+              "communication_goal": "detailed_service_request",
+              "duration_seconds": 45,
+              "tips": "Group your requests logically - size, drink type, modifications"
+            },
+            {
+              "id": "ES_003",
+              "difficulty": 3,
+              "scenario": "coffee_shop_problem",
+              "title": "Coffee Shop Problem Solving",
+              "instruction": "Handle a problem with your coffee order professionally",
+              "content": "Excuse me, I ordered a cappuccino but this looks like a regular coffee. Could you please check my order?",
+              "communication_goal": "problem_resolution",
+              "duration_seconds": 40,
+              "tips": "Stay polite but be clear about the issue"
+            },
+            {
+              "id": "ES_004",
+              "difficulty": 1,
+              "scenario": "restaurant_arrival",
+              "title": "Restaurant Greeting",
+              "instruction": "Communicate with restaurant host upon arrival",
+              "content": "Hello. Table for two, please. We have a reservation under Johnson.",
+              "communication_goal": "service_initiation",
+              "duration_seconds": 25,
+              "tips": "State your needs clearly and provide necessary information"
+            },
+            {
+              "id": "ES_005",
+              "difficulty": 2,
+              "scenario": "restaurant_ordering",
+              "title": "Menu Order",
+              "instruction": "Order a complete meal at a restaurant",
+              "content": "I'll have the grilled chicken with rice and vegetables. Could I get the sauce on the side? And a water to drink, please.",
+              "communication_goal": "meal_ordering",
+              "duration_seconds": 50,
+              "tips": "Order main item first, then modifications, then drink"
+            },
+            {
+              "id": "ES_006",
+              "difficulty": 3,
+              "scenario": "restaurant_dietary",
+              "title": "Dietary Restrictions",
+              "instruction": "Communicate dietary needs and ask questions about menu items",
+              "content": "I have a gluten allergy. Which of your pasta dishes can be made gluten-free? Is there any cross-contamination in the kitchen?",
+              "communication_goal": "health_safety_communication",
+              "duration_seconds": 55,
+              "tips": "Be specific about allergies - this is safety communication"
+            },
+            {
+              "id": "ES_007",
+              "difficulty": 4,
+              "scenario": "restaurant_complaint",
+              "title": "Food Service Complaint",
+              "instruction": "Address a problem with your meal professionally",
+              "content": "I'm sorry, but my chicken is undercooked. Could you please have the kitchen prepare a new one? I'd appreciate it being cooked thoroughly.",
+              "communication_goal": "service_complaint",
+              "duration_seconds": 60,
+              "tips": "Be firm but polite. Food safety is important."
+            },
+            {
+              "id": "ES_008",
+              "difficulty": 1,
+              "scenario": "phone_answering",
+              "title": "Basic Phone Greeting",
+              "instruction": "Answer the phone professionally and personally",
+              "content": "Hello, this is Sarah. How can I help you? Sure, let me get that information for you.",
+              "communication_goal": "phone_etiquette",
+              "duration_seconds": 30,
+              "tips": "Speak slightly louder and clearer on phone calls"
+            },
+            {
+              "id": "ES_009",
+              "difficulty": 2,
+              "scenario": "phone_appointment",
+              "title": "Making an Appointment",
+              "instruction": "Schedule a doctor's appointment over the phone",
+              "content": "I'd like to schedule an appointment with Dr. Smith. I'm available Tuesday or Wednesday morning. What times do you have open?",
+              "communication_goal": "appointment_scheduling",
+              "duration_seconds": 45,
+              "tips": "Have your calendar ready and speak your availability clearly"
+            },
+            {
+              "id": "ES_010",
+              "difficulty": 3,
+              "scenario": "phone_complaint",
+              "title": "Customer Service Call",
+              "instruction": "Call customer service to resolve a billing issue",
+              "content": "I'm calling about my account number 12345. There's a charge on my bill I don't recognize. Can you help me understand what this is for?",
+              "communication_goal": "customer_service_resolution",
+              "duration_seconds": 55,
+              "tips": "Have your account information ready and explain the issue clearly"
+            },
+            {
+              "id": "ES_011",
+              "difficulty": 1,
+              "scenario": "introduction_casual",
+              "title": "Casual Introduction",
+              "instruction": "Introduce yourself in a social setting",
+              "content": "Hi, I'm Mike. Nice to meet you. I work downtown at the bank. How do you know Sarah?",
+              "communication_goal": "social_introduction",
+              "duration_seconds": 30,
+              "tips": "Include your name, a bit about yourself, and a connecting question"
+            },
+            {
+              "id": "ES_012",
+              "difficulty": 2,
+              "scenario": "introduction_professional",
+              "title": "Professional Introduction",
+              "instruction": "Introduce yourself in a business setting",
+              "content": "Good morning, I'm Jennifer Smith from the marketing department. I'm here for the 9 AM meeting about the new product launch.",
+              "communication_goal": "professional_introduction",
+              "duration_seconds": 35,
+              "tips": "Include full name, department/company, and purpose of meeting"
+            },
+            {
+              "id": "ES_013",
+              "difficulty": 3,
+              "scenario": "introduction_networking",
+              "title": "Networking Introduction",
+              "instruction": "Introduce yourself at a professional networking event",
+              "content": "Hello, I'm David Chen. I'm a software engineer with ten years experience in mobile app development. I'm particularly interested in healthcare technology.",
+              "communication_goal": "networking_pitch",
+              "duration_seconds": 45,
+              "tips": "Name, profession, experience level, and specific interest area"
+            },
+            {
+              "id": "ES_014",
+              "difficulty": 1,
+              "scenario": "medical_checkin",
+              "title": "Medical Office Check-in",
+              "instruction": "Check in for a doctor's appointment",
+              "content": "Hello, I'm here for my 2 o'clock appointment with Dr. Johnson. My name is Susan Brown. Here's my insurance card.",
+              "communication_goal": "medical_checkin",
+              "duration_seconds": 30,
+              "tips": "State appointment time, doctor name, your name, and have documents ready"
+            },
+            {
+              "id": "ES_015",
+              "difficulty": 3,
+              "scenario": "medical_symptoms",
+              "title": "Describing Symptoms",
+              "instruction": "Describe your health symptoms to a doctor",
+              "content": "I've been having headaches for about a week. They're worse in the morning and last about two hours. The pain is on the right side of my head.",
+              "communication_goal": "symptom_description",
+              "duration_seconds": 60,
+              "tips": "Include when it started, frequency, duration, location, and severity"
+            },
+            {
+              "id": "ES_016",
+              "difficulty": 4,
+              "scenario": "medical_history",
+              "title": "Medical History Discussion",
+              "instruction": "Discuss your medical history and current medications",
+              "content": "I have high blood pressure and diabetes. I take metformin twice daily and lisinopril once in the morning. My last blood pressure reading was 140 over 90.",
+              "communication_goal": "medical_history_sharing",
+              "duration_seconds": 65,
+              "tips": "Medical information must be precise and clear for safety"
+            },
+            {
+              "id": "ES_017",
+              "difficulty": 2,
+              "scenario": "job_interview_opening",
+              "title": "Interview Introduction",
+              "instruction": "Introduce yourself at the beginning of a job interview",
+              "content": "Thank you for meeting with me today. I'm excited about this opportunity. I have five years of experience in customer service and I'm looking to grow my career.",
+              "communication_goal": "interview_opening",
+              "duration_seconds": 40,
+              "tips": "Express gratitude, enthusiasm, and briefly state your background"
+            },
+            {
+              "id": "ES_018",
+              "difficulty": 3,
+              "scenario": "job_interview_strengths",
+              "title": "Discussing Strengths",
+              "instruction": "Answer questions about your professional strengths",
+              "content": "My greatest strength is my ability to communicate clearly with customers. I can explain complex information in simple terms and I'm very patient when helping people solve problems.",
+              "communication_goal": "strength_presentation",
+              "duration_seconds": 55,
+              "tips": "Give specific examples and explain how your strength helps others"
+            },
+            {
+              "id": "ES_019",
+              "difficulty": 4,
+              "scenario": "job_interview_situational",
+              "title": "Situational Interview Question",
+              "instruction": "Answer a behavioral interview question about handling challenges",
+              "content": "When I faced that challenge, I first gathered all the information I needed. Then I spoke with my supervisor to discuss options. We developed a plan together and I followed through with regular updates.",
+              "communication_goal": "behavioral_response",
+              "duration_seconds": 65,
+              "tips": "Use the STAR method: Situation, Task, Action, Result"
+            },
+            {
+              "id": "ES_020",
+              "difficulty": 1,
+              "scenario": "morning_routine_family",
+              "title": "Morning Family Communication",
+              "instruction": "Communicate with family during morning routine",
+              "content": "Good morning everyone. Breakfast is ready. Don't forget your lunch money. Have a great day at school.",
+              "communication_goal": "family_coordination",
+              "duration_seconds": 25,
+              "tips": "Keep morning communication clear and positive"
+            },
+            {
+              "id": "ES_021",
+              "difficulty": 2,
+              "scenario": "evening_routine",
+              "title": "Evening Check-in",
+              "instruction": "Check in with family about their day",
+              "content": "How was everyone's day? What was the best part? Did anything challenging happen? Let's talk about tomorrow's plans.",
+              "communication_goal": "family_connection",
+              "duration_seconds": 45,
+              "tips": "Ask open-ended questions and listen actively"
+            },
+            {
+              "id": "ES_022",
+              "difficulty": 1,
+              "scenario": "grocery_shopping",
+              "title": "Grocery Store Questions",
+              "instruction": "Ask for help finding items in a grocery store",
+              "content": "Excuse me, could you help me find the pasta aisle? Thank you. Also, where do you keep the organic vegetables?",
+              "communication_goal": "retail_assistance",
+              "duration_seconds": 30,
+              "tips": "Be polite and specific about what you need"
+            },
+            {
+              "id": "ES_023",
+              "difficulty": 2,
+              "scenario": "grocery_checkout",
+              "title": "Grocery Checkout Interaction",
+              "instruction": "Interact with cashier during grocery checkout",
+              "content": "Good afternoon. I have my own bags, thank you. Do you have a rewards card I could sign up for? Cash is fine.",
+              "communication_goal": "checkout_interaction",
+              "duration_seconds": 35,
+              "tips": "Communicate your preferences clearly and politely"
+            },
+            {
+              "id": "ES_024",
+              "difficulty": 3,
+              "scenario": "shopping_returns",
+              "title": "Returning an Item",
+              "instruction": "Return an item to a retail store",
+              "content": "I'd like to return this shirt. I bought it last week but it doesn't fit properly. I have the receipt and the tags are still on.",
+              "communication_goal": "return_processing",
+              "duration_seconds": 40,
+              "tips": "Explain reason clearly and have documentation ready"
+            },
+            {
+              "id": "ES_025",
+              "difficulty": 1,
+              "scenario": "neighbor_greeting",
+              "title": "Neighbor Interaction",
+              "instruction": "Greet and chat briefly with a neighbor",
+              "content": "Good morning, Tom. Beautiful day, isn't it? How's your garden coming along? The roses look wonderful this year.",
+              "communication_goal": "neighborly_chat",
+              "duration_seconds": 30,
+              "tips": "Keep neighborhood conversations friendly and positive"
+            },
+            {
+              "id": "ES_026",
+              "difficulty": 4,
+              "scenario": "emergency_call",
+              "title": "Emergency Services Call",
+              "instruction": "Call emergency services to report an incident",
+              "content": "I need to report a car accident at the intersection of Main and Oak Streets. No one appears seriously injured but both cars are blocking traffic. My name is John Smith.",
+              "communication_goal": "emergency_reporting",
+              "duration_seconds": 50,
+              "tips": "Stay calm, be specific about location and situation"
+            },
+            {
+              "id": "ES_027",
+              "difficulty": 2,
+              "scenario": "bank_transaction",
+              "title": "Bank Teller Interaction",
+              "instruction": "Complete a banking transaction",
+              "content": "I'd like to make a deposit to my checking account. The account number is on this card. I also need to check my balance, please.",
+              "communication_goal": "banking_service",
+              "duration_seconds": 35,
+              "tips": "Have account information ready and state your needs clearly"
+            },
+            {
+              "id": "ES_028",
+              "difficulty": 3,
+              "scenario": "pharmacy_pickup",
+              "title": "Pharmacy Prescription",
+              "instruction": "Pick up prescription medication at pharmacy",
+              "content": "I'm here to pick up a prescription for Sarah Johnson. Date of birth is March 15th, 1980. Do you need to see my ID?",
+              "communication_goal": "pharmacy_service",
+              "duration_seconds": 40,
+              "tips": "Have identification ready and know patient information"
+            },
+            {
+              "id": "ES_029",
+              "difficulty": 2,
+              "scenario": "taxi_ride",
+              "title": "Taxi/Ride Service",
+              "instruction": "Communicate with a taxi or ride service driver",
+              "content": "Hi, I'm going to 123 Main Street downtown. Could you take the highway if traffic is okay? I need to be there by 3 PM.",
+              "communication_goal": "transportation_communication",
+              "duration_seconds": 35,
+              "tips": "Give clear destination and any time constraints or route preferences"
+            },
+            {
+              "id": "ES_030",
+              "difficulty": 3,
+              "scenario": "hotel_checkin",
+              "title": "Hotel Check-in",
+              "instruction": "Check into a hotel",
+              "content": "Good evening. I have a reservation under the name Williams. Confirmation number is ABC123. I'd prefer a non-smoking room on a lower floor if possible.",
+              "communication_goal": "hotel_service",
+              "duration_seconds": 45,
+              "tips": "Have reservation details ready and communicate any preferences"
+            }
+          ]
+        },
+        "naming_pronunciation": {
+          "name": "Naming & Pronunciation",
+          "description": "Articulation exercises based on clinical speech therapy hierarchy for dysarthria",
+          "targets": ["consonant_precision", "vowel_clarity", "syllable_structure", "phoneme_accuracy"],
+          "exercise_count": 100,
+          "exercises": [
+            {
+              "id": "NP_001",
+              "difficulty": 1,
+              "target_sound": "p",
+              "position": "initial",
+              "title": "P Sound - Beginning Position",
+              "instruction": "Practice the P sound at the beginning of words. Focus on lip closure and release",
+              "content": "Pay. Put. Pen. Pop. Pack. Pan. Pet. Pot. Pit. Pad.",
+              "articulation_target": "bilabial_plosive",
+              "duration_seconds": 40,
+              "tips": "Press lips together firmly, then release with a small puff of air"
+            },
+            {
+              "id": "NP_002",
+              "difficulty": 1,
+              "target_sound": "b",
+              "position": "initial",
+              "title": "B Sound - Beginning Position",
+              "instruction": "Practice the B sound with voice. Feel the vibration in your throat",
+              "content": "Bay. But. Ben. Bob. Back. Ban. Bet. Bot. Bit. Bad.",
+              "articulation_target": "voiced_bilabial_plosive",
+              "duration_seconds": 40,
+              "tips": "Same lip position as P, but add voice vibration"
+            },
+            {
+              "id": "NP_003",
+              "difficulty": 1,
+              "target_sound": "t",
+              "position": "initial", 
+              "title": "T Sound - Beginning Position",
+              "instruction": "Practice T sound with tongue tip touching roof of mouth",
+              "content": "Tea. Top. Ten. Tip. Tap. Tie. Toy. Two. Toe. Tab.",
+              "articulation_target": "alveolar_plosive",
+              "duration_seconds": 40,
+              "tips": "Touch tongue tip to the ridge behind your upper teeth"
+            },
+            {
+              "id": "NP_004",
+              "difficulty": 1,
+              "target_sound": "d",
+              "position": "initial",
+              "title": "D Sound - Beginning Position", 
+              "instruction": "Practice D sound with voice and tongue contact",
+              "content": "Day. Dog. Den. Dip. Dad. Do. Dot. Dig. Door. Duck.",
+              "articulation_target": "voiced_alveolar_plosive",
+              "duration_seconds": 40,
+              "tips": "Same tongue position as T, but add voice vibration"
+            },
+            {
+              "id": "NP_005",
+              "difficulty": 1,
+              "target_sound": "k",
+              "position": "initial",
+              "title": "K Sound - Beginning Position",
+              "instruction": "Practice K sound with back of tongue touching soft palate",
+              "content": "Key. Cat. Cup. Can. Car. Come. Cut. Call. Keep. Cap.",
+              "articulation_target": "velar_plosive", 
+              "duration_seconds": 40,
+              "tips": "Raise back of tongue to touch the soft part of the roof of your mouth"
+            },
+            {
+              "id": "NP_006",
+              "difficulty": 1,
+              "target_sound": "g",
+              "position": "initial",
+              "title": "G Sound - Beginning Position",
+              "instruction": "Practice G sound with voice and tongue contact",
+              "content": "Go. Get. Guy. Got. Gap. Game. Give. Good. Gas. Gun.",
+              "articulation_target": "voiced_velar_plosive",
+              "duration_seconds": 40,
+              "tips": "Same tongue position as K, but add voice vibration"
+            },
+            {
+              "id": "NP_007",
+              "difficulty": 2,
+              "target_sound": "f",
+              "position": "initial",
+              "title": "F Sound - Beginning Position",
+              "instruction": "Practice F sound with bottom lip touching upper teeth",
+              "content": "Fee. Fat. Fun. Fit. Fog. Fan. Fish. Fast. Face. Fire.",
+              "articulation_target": "labiodental_fricative",
+              "duration_seconds": 45,
+              "tips": "Lightly bite your lower lip with upper teeth and blow air"
+            },
+            {
+              "id": "NP_008",
+              "difficulty": 2,
+              "target_sound": "v",
+              "position": "initial",
+              "title": "V Sound - Beginning Position",
+              "instruction": "Practice V sound with voice and lip-tooth contact",
+              "content": "Very. Van. Vote. Vet. Voice. View. Vine. Vase. Vest. Vast.",
+              "articulation_target": "voiced_labiodental_fricative",
+              "duration_seconds": 45,
+              "tips": "Same lip position as F, but add voice vibration"
+            },
+            {
+              "id": "NP_009",
+              "difficulty": 2,
+              "target_sound": "s",
+              "position": "initial",
+              "title": "S Sound - Beginning Position",
+              "instruction": "Practice S sound with tongue creating a narrow groove",
+              "content": "See. Say. Sit. Sun. Sip. Sad. Side. Sell. Sing. Soap.",
+              "articulation_target": "alveolar_fricative",
+              "duration_seconds": 45,
+              "tips": "Make a groove with your tongue and blow air through it"
+            },
+            {
+              "id": "NP_010",
+              "difficulty": 2,
+              "target_sound": "z",
+              "position": "initial",
+              "title": "Z Sound - Beginning Position",
+              "instruction": "Practice Z sound with voice and tongue groove",
+              "content": "Zoo. Zip. Zone. Zero. Zap. Zoom. Zest. Zinc. Zeal. Zen.",
+              "articulation_target": "voiced_alveolar_fricative",
+              "duration_seconds": 45,
+              "tips": "Same tongue position as S, but add voice vibration"
+            },
+            {
+              "id": "NP_011",
+              "difficulty": 3,
+              "target_sound": "sh",
+              "position": "initial",
+              "title": "SH Sound - Beginning Position",
+              "instruction": "Practice SH sound with lips rounded and tongue pulled back",
+              "content": "She. Ship. Shop. Shoe. Shut. Shake. Shirt. Sheep. Shine. Sharp.",
+              "articulation_target": "postalveolar_fricative",
+              "duration_seconds": 50,
+              "tips": "Round your lips slightly and pull tongue back from S position"
+            },
+            {
+              "id": "NP_012",
+              "difficulty": 3,
+              "target_sound": "zh",
+              "position": "medial",
+              "title": "ZH Sound - Middle Position",
+              "instruction": "Practice the ZH sound as in 'measure' in the middle of words",
+              "content": "Measure. Leisure. Pleasure. Treasure. Vision. Decision. Revision. Fusion. Conclusion. Occasion.",
+              "articulation_target": "voiced_postalveolar_fricative",
+              "duration_seconds": 60,
+              "tips": "Same position as SH but add voice vibration"
+            },
+            {
+              "id": "NP_013",
+              "difficulty": 3,
+              "target_sound": "ch",
+              "position": "initial",
+              "title": "CH Sound - Beginning Position",
+              "instruction": "Practice CH sound combining T and SH sounds",
+              "content": "Cheese. Chair. Chain. Chip. Chop. Choose. Check. Chin. Chest. Cheap.",
+              "articulation_target": "postalveolar_affricate",
+              "duration_seconds": 50,
+              "tips": "Start with tongue in T position, then move to SH"
+            },
+            {
+              "id": "NP_014",
+              "difficulty": 3,
+              "target_sound": "j",
+              "position": "initial",
+              "title": "J Sound - Beginning Position",
+              "instruction": "Practice J sound combining D and ZH sounds with voice",
+              "content": "Juice. Jump. Just. Jam. Job. Joy. Joke. Jar. Jet. Jog.",
+              "articulation_target": "voiced_postalveolar_affricate",
+              "duration_seconds": 50,
+              "tips": "Start with tongue in D position, then move to ZH with voice"
+            },
+            {
+              "id": "NP_015",
+              "difficulty": 4,
+              "target_sound": "th_voiceless",
+              "position": "initial",
+              "title": "TH Sound (voiceless) - Beginning Position",
+              "instruction": "Practice unvoiced TH with tongue between teeth",
+              "content": "Think. Thank. Thick. Thin. Throw. Three. Through. Thirty. Thirst. Thumb.",
+              "articulation_target": "dental_fricative",
+              "duration_seconds": 55,
+              "tips": "Place tongue tip between teeth and blow air"
+            },
+            {
+              "id": "NP_016",
+              "difficulty": 4,
+              "target_sound": "th_voiced",
+              "position": "initial",
+              "title": "TH Sound (voiced) - Beginning Position",
+              "instruction": "Practice voiced TH with tongue between teeth and voice",
+              "content": "The. This. That. They. There. Then. These. Those. Though. Than.",
+              "articulation_target": "voiced_dental_fricative",
+              "duration_seconds": 55,
+              "tips": "Same tongue position as voiceless TH, but add voice vibration"
+            },
+            {
+              "id": "NP_017",
+              "difficulty": 4,
+              "target_sound": "r",
+              "position": "initial",
+              "title": "R Sound - Beginning Position",
+              "instruction": "Practice R sound without tongue touching roof of mouth",
+              "content": "Red. Run. Road. Rain. Ring. Rock. Room. Ride. Rich. Rice.",
+              "articulation_target": "alveolar_approximant",
+              "duration_seconds": 55,
+              "tips": "Curl tongue tip up but don't touch the roof of your mouth"
+            },
+            {
+              "id": "NP_018",
+              "difficulty": 3,
+              "target_sound": "l",
+              "position": "initial",
+              "title": "L Sound - Beginning Position",
+              "instruction": "Practice L sound with tongue tip touching alveolar ridge",
+              "content": "Lee. Let. Light. Love. Look. Live. Low. Leg. Lip. Lake.",
+              "articulation_target": "alveolar_lateral",
+              "duration_seconds": 50,
+              "tips": "Touch tongue tip to ridge behind upper teeth, air flows around sides"
+            },
+            {
+              "id": "NP_019",
+              "difficulty": 2,
+              "target_sound": "m",
+              "position": "initial",
+              "title": "M Sound - Beginning Position",
+              "instruction": "Practice M sound with lips closed and voice through nose",
+              "content": "Me. My. Make. More. Man. Mom. Move. Moon. Mail. Meet.",
+              "articulation_target": "bilabial_nasal",
+              "duration_seconds": 45,
+              "tips": "Close lips and let voice come through your nose"
+            },
+            {
+              "id": "NP_020",
+              "difficulty": 2,
+              "target_sound": "n",
+              "position": "initial",
+              "title": "N Sound - Beginning Position", 
+              "instruction": "Practice N sound with tongue tip up and voice through nose",
+              "content": "No. New. Name. Now. Nice. Need. Never. Next. Note. Near.",
+              "articulation_target": "alveolar_nasal",
+              "duration_seconds": 45,
+              "tips": "Touch tongue tip to alveolar ridge, voice through nose"
+            },
+            {
+              "id": "NP_021",
+              "difficulty": 3,
+              "target_sound": "ng",
+              "position": "final",
+              "title": "NG Sound - Ending Position",
+              "instruction": "Practice NG sound with back of tongue up and voice through nose",
+              "content": "Ring. Sing. Long. Strong. Young. Thing. Bring. King. Wing. Hang.",
+              "articulation_target": "velar_nasal", 
+              "duration_seconds": 50,
+              "tips": "Raise back of tongue to soft palate, voice through nose"
+            },
+            {
+              "id": "NP_022",
+              "difficulty": 2,
+              "target_sound": "w",
+              "position": "initial",
+              "title": "W Sound - Beginning Position",
+              "instruction": "Practice W sound with rounded lips and voice",
+              "content": "We. Way. Win. Work. Water. Want. Wait. Walk. Warm. Watch.",
+              "articulation_target": "labial_glide",
+              "duration_seconds": 45,
+              "tips": "Round lips as if saying 'oo' then glide to next vowel"
+            },
+            {
+              "id": "NP_023",
+              "difficulty": 3,
+              "target_sound": "y",
+              "position": "initial",
+              "title": "Y Sound - Beginning Position",
+              "instruction": "Practice Y sound with tongue high and forward",
+              "content": "Yes. You. Year. Young. Your. Yet. Yard. Yellow. Yell. Yeast.",
+              "articulation_target": "palatal_glide",
+              "duration_seconds": 50,
+              "tips": "Raise tongue toward hard palate as if saying 'ee'"
+            },
+            {
+              "id": "NP_024",
+              "difficulty": 2,
+              "target_sound": "h",
+              "position": "initial",
+              "title": "H Sound - Beginning Position",
+              "instruction": "Practice H sound with open throat and breath flow",
+              "content": "He. Hi. Hat. Home. House. Hand. Head. Heart. Hope. Help.",
+              "articulation_target": "glottal_fricative",
+              "duration_seconds": 45,
+              "tips": "Open throat and breathe out with voice"
+            },
+            {
+              "id": "NP_025",
+              "difficulty": 3,
+              "target_sound": "p",
+              "position": "final",
+              "title": "P Sound - Ending Position",
+              "instruction": "Practice P sound at the end of words with clear closure",
+              "content": "Cup. Map. Top. Ship. Lap. Deep. Keep. Stop. Shop. Tape.",
+              "articulation_target": "bilabial_plosive_final",
+              "duration_seconds": 50,
+              "tips": "End with lips pressed together firmly"
+            },
+            {
+              "id": "NP_026",
+              "difficulty": 3,
+              "target_sound": "t",
+              "position": "final",
+              "title": "T Sound - Ending Position",
+              "instruction": "Practice T sound at the end of words with tongue contact",
+              "content": "Cat. Hat. Sit. Get. Put. Cut. Bat. Hot. Fit. Net.",
+              "articulation_target": "alveolar_plosive_final",
+              "duration_seconds": 50,
+              "tips": "End with tongue tip touching alveolar ridge"
+            },
+            {
+              "id": "NP_027",
+              "difficulty": 3,
+              "target_sound": "k",
+              "position": "final",
+              "title": "K Sound - Ending Position",
+              "instruction": "Practice K sound at the end of words with back tongue contact",
+              "content": "Book. Look. Make. Take. Like. Back. Rock. Sick. Talk. Walk.",
+              "articulation_target": "velar_plosive_final",
+              "duration_seconds": 50,
+              "tips": "End with back of tongue touching soft palate"
+            },
+            {
+              "id": "NP_028",
+              "difficulty": 4,
+              "target_sound": "consonant_clusters",
+              "position": "initial",
+              "title": "Beginning Consonant Clusters",
+              "instruction": "Practice two consonant sounds together at word beginnings",
+              "content": "Blue. Green. Play. Stop. Train. Dress. Frog. Swim. Clap. Grab.",
+              "articulation_target": "initial_clusters",
+              "duration_seconds": 60,
+              "tips": "Practice each consonant clearly but blend them smoothly"
+            },
+            {
+              "id": "NP_029",
+              "difficulty": 4,
+              "target_sound": "consonant_clusters",
+              "position": "final",
+              "title": "Ending Consonant Clusters",
+              "instruction": "Practice consonant clusters at the end of words",
+              "content": "Fast. Best. Just. Last. First. Next. Desk. Task. Twist. Lift.",
+              "articulation_target": "final_clusters",
+              "duration_seconds": 60,
+              "tips": "Make sure both final consonants are heard clearly"
+            },
+            {
+              "id": "NP_030",
+              "difficulty": 5,
+              "target_sound": "three_consonant_clusters",
+              "position": "initial",
+              "title": "Three Consonant Clusters",
+              "instruction": "Practice three consonant sounds together at word beginnings",
+              "content": "Street. Strong. Spring. Splash. Scream. Spray. Strap. Throw. Scratch. Split.",
+              "articulation_target": "complex_initial_clusters",
+              "duration_seconds": 70,
+              "tips": "Take your time and articulate each consonant within the cluster"
+            },
+            {
+              "id": "NP_031",
+              "difficulty": 2,
+              "target_sound": "minimal_pairs_p_b",
+              "position": "initial",
+              "title": "P vs B Minimal Pairs",
+              "instruction": "Practice distinguishing between P and B sounds",
+              "content": "Pay - Bay. Pen - Ben. Pat - Bat. Pet - Bet. Pig - Big. Pack - Back.",
+              "articulation_target": "voicing_contrast",
+              "duration_seconds": 55,
+              "tips": "P has no voice, B has voice vibration"
+            },
+            {
+              "id": "NP_032",
+              "difficulty": 2,
+              "target_sound": "minimal_pairs_t_d",
+              "position": "initial",
+              "title": "T vs D Minimal Pairs",
+              "instruction": "Practice distinguishing between T and D sounds",
+              "content": "Ten - Den. Tie - Die. Toe - Dough. Two - Do. Town - Down. Tear - Dear.",
+              "articulation_target": "voicing_contrast",
+              "duration_seconds": 55,
+              "tips": "T has no voice, D has voice vibration"
+            },
+            {
+              "id": "NP_033",
+              "difficulty": 2,
+              "target_sound": "minimal_pairs_k_g",
+              "position": "initial",
+              "title": "K vs G Minimal Pairs",
+              "instruction": "Practice distinguishing between K and G sounds",
+              "content": "Come - Gum. Card - Guard. Call - Gall. Cold - Gold. Coat - Goat. Cut - Gut.",
+              "articulation_target": "voicing_contrast",
+              "duration_seconds": 55,
+              "tips": "K has no voice, G has voice vibration"
+            },
+            {
+              "id": "NP_034",
+              "difficulty": 3,
+              "target_sound": "minimal_pairs_f_v",
+              "position": "initial",
+              "title": "F vs V Minimal Pairs",
+              "instruction": "Practice distinguishing between F and V sounds",
+              "content": "Fan - Van. Fine - Vine. Fast - Vast. Feel - Veal. Fairy - Very. Face - Vase.",
+              "articulation_target": "voicing_contrast",
+              "duration_seconds": 55,
+              "tips": "F has no voice, V has voice vibration"
+            },
+            {
+              "id": "NP_035",
+              "difficulty": 3,
+              "target_sound": "minimal_pairs_s_z",
+              "position": "initial",
+              "title": "S vs Z Minimal Pairs",
+              "instruction": "Practice distinguishing between S and Z sounds",
+              "content": "Sue - Zoo. Sip - Zip. Seal - Zeal. Sap - Zap. Sink - Zinc. Sun - None with Z.",
+              "articulation_target": "voicing_contrast",
+              "duration_seconds": 55,
+              "tips": "S has no voice, Z has voice vibration"
+            },
+            {
+              "id": "NP_036",
+              "difficulty": 4,
+              "target_sound": "minimal_pairs_th",
+              "position": "initial",
+              "title": "TH Voiceless vs Voiced",
+              "instruction": "Practice distinguishing between the two TH sounds",
+              "content": "Think - This. Thank - Than. Thick - That. Thigh - Thy. Through - Those.",
+              "articulation_target": "voicing_contrast",
+              "duration_seconds": 60,
+              "tips": "First TH has no voice, second TH has voice vibration"
+            },
+            {
+              "id": "NP_037",
+              "difficulty": 4,
+              "target_sound": "r_l_contrast",
+              "position": "initial",
+              "title": "R vs L Minimal Pairs",
+              "instruction": "Practice distinguishing between R and L sounds",
+              "content": "Red - Led. Right - Light. Rock - Lock. Road - Load. Race - Lace. Rain - Lane.",
+              "articulation_target": "liquid_contrast",
+              "duration_seconds": 60,
+              "tips": "R curls up without touching, L touches alveolar ridge"
+            },
+            {
+              "id": "NP_038",
+              "difficulty": 5,
+              "target_sound": "multisyllabic",
+              "position": "all",
+              "title": "Two Syllable Words",
+              "instruction": "Practice clear pronunciation of two syllable words",
+              "content": "Water. Paper. Table. Simple. Happy. Garden. Kitchen. Window. Doctor. Sister.",
+              "articulation_target": "syllable_structure",
+              "duration_seconds": 60,
+              "tips": "Make each syllable clear and distinct"
+            },
+            {
+              "id": "NP_039",
+              "difficulty": 5,
+              "target_sound": "multisyllabic",
+              "position": "all",
+              "title": "Three Syllable Words",
+              "instruction": "Practice clear pronunciation of three syllable words",
+              "content": "Computer. Hospital. Beautiful. Important. Telephone. Remember. Together. Tomorrow. Family. Animal.",
+              "articulation_target": "complex_syllable_structure",
+              "duration_seconds": 70,
+              "tips": "Break words into syllables: com-pu-ter"
+            },
+            {
+              "id": "NP_040",
+              "difficulty": 5,
+              "target_sound": "multisyllabic",
+              "position": "all",
+              "title": "Four Syllable Words",
+              "instruction": "Practice clear pronunciation of four syllable words",
+              "content": "Television. Information. Communication. Conversation. University. Laboratory. Emergency. Photography. Democracy. Electricity.",
+              "articulation_target": "complex_syllable_structure",
+              "duration_seconds": 80,
+              "tips": "Practice slowly first: tel-e-vi-sion"
+            },
+            {
+              "id": "NP_041",
+              "difficulty": 3,
+              "target_sound": "vowel_contrasts",
+              "position": "all",
+              "title": "Short Vowel Contrasts",
+              "instruction": "Practice distinguishing between short vowel sounds",
+              "content": "Bit - Bet - Bat. Hit - Hot - Hat. Sit - Set - Sat. Pit - Pet - Pat.",
+              "articulation_target": "vowel_precision",
+              "duration_seconds": 55,
+              "tips": "Make each vowel sound distinct and clear"
+            },
+            {
+              "id": "NP_042",
+              "difficulty": 3,
+              "target_sound": "vowel_contrasts",
+              "position": "all",
+              "title": "Long Vowel Contrasts",
+              "instruction": "Practice distinguishing between long vowel sounds",
+              "content": "Beat - Boot - Boat. Seat - Suit - Coat. Heat - Hoot - Note. Feet - Food - Fold.",
+              "articulation_target": "vowel_precision",
+              "duration_seconds": 55,
+              "tips": "Long vowels should be held longer and be very clear"
+            },
+            {
+              "id": "NP_043",
+              "difficulty": 4,
+              "target_sound": "diphthongs",
+              "position": "all",
+              "title": "Diphthong Sounds",
+              "instruction": "Practice vowel sounds that glide from one to another",
+              "content": "Boy. Toy. Joy. Coin. Point. House. Mouse. Loud. Cloud. Round.",
+              "articulation_target": "diphthong_precision",
+              "duration_seconds": 60,
+              "tips": "Let your mouth move smoothly from first vowel to second"
+            },
+            {
+              "id": "NP_044",
+              "difficulty": 2,
+              "target_sound": "word_stress",
+              "position": "all",
+              "title": "Word Stress Patterns",
+              "instruction": "Practice emphasizing the correct syllable in words",
+              "content": "TAble. comPUter. BEAutiful. imPORtant. HOSpital. teleVIsion.",
+              "articulation_target": "prosodic_stress",
+              "duration_seconds": 50,
+              "tips": "Make the stressed syllable louder and longer"
+            },
+            {
+              "id": "NP_045",
+              "difficulty": 4,
+              "target_sound": "connected_speech",
+              "position": "all",
+              "title": "Word Combinations",
+              "instruction": "Practice clear articulation in connected speech",
+              "content": "Red car. Big dog. Hot coffee. Nice day. Good morning. Thank you. See you later. How are you?",
+              "articulation_target": "coarticulation",
+              "duration_seconds": 60,
+              "tips": "Keep each word clear but connect them naturally"
+            }
+          ]
+        },
+        "voice_control_pitch": {
+          "name": "Voice Control & Pitch",
+          "description": "Exercises focusing on volume control, pitch variation, and voice quality improvement",
+          "targets": ["monotone_voice", "volume_control", "voice_quality", "pitch_variation"],
+          "exercise_count": 100,
+          "exercises": [
+            {
+              "id": "VCP_001",
+              "difficulty": 1,
+              "scenario": "volume_practice",
+              "title": "Volume Control - Quiet to Loud",
+              "instruction": "Say 'hello' starting quietly, then gradually getting louder with each repetition",
+              "content": "Hello... Hello... HELLO... HELLO... hello.",
+              "voice_target": "volume_control",
+              "duration_seconds": 30,
+              "tips": "Control your volume deliberately, don't shout"
+            },
+            {
+              "id": "VCP_002",
+              "difficulty": 1,
+              "scenario": "pitch_practice",
+              "title": "High to Low Pitch",
+              "instruction": "Say 'good morning' starting with a high pitch, then gradually lower your pitch",
+              "content": "Good morning... good morning... good morning... good morning.",
+              "voice_target": "pitch_variation",
+              "duration_seconds": 35,
+              "tips": "Let your voice naturally rise and fall"
+            },
+            {
+              "id": "VCP_003",
+              "difficulty": 1,
+              "scenario": "questioning_tone",
+              "title": "Question Voice Pattern",
+              "instruction": "Practice asking questions with rising pitch at the end",
+              "content": "How are you? What time is it? Where are you going? Are you ready?",
+              "voice_target": "question_intonation",
+              "duration_seconds": 40,
+              "tips": "Let your voice rise naturally at the end of questions"
+            },
+            {
+              "id": "VCP_004",
+              "difficulty": 2,
+              "scenario": "excited_speech",
+              "title": "Expressing Excitement",
+              "instruction": "Show excitement in your voice while maintaining clarity",
+              "content": "That's wonderful news! I'm so happy for you! This is amazing! What a great surprise!",
+              "voice_target": "emotional_expression",
+              "duration_seconds": 45,
+              "tips": "Use pitch and volume changes to show emotion"
+            },
+            {
+              "id": "VCP_005",
+              "difficulty": 2,
+              "scenario": "serious_tone",
+              "title": "Serious Communication",
+              "instruction": "Practice speaking with a serious, authoritative tone",
+              "content": "This is important information. Please listen carefully. We need to discuss this matter. Take this seriously.",
+              "voice_target": "authoritative_tone",
+              "duration_seconds": 50,
+              "tips": "Lower pitch and steady volume convey seriousness"
+            },
+            {
+              "id": "VCP_006",
+              "difficulty": 1,
+              "scenario": "whispering_practice",
+              "title": "Controlled Whispering",
+              "instruction": "Practice whispering clearly while maintaining articulation",
+              "content": "Can you hear me? This is a secret. Come closer. Listen carefully.",
+              "voice_target": "whisper_clarity",
+              "duration_seconds": 35,
+              "tips": "Even when whispering, maintain clear consonants"
+            },
+            {
+              "id": "VCP_007",
+              "difficulty": 3,
+              "scenario": "phone_conversation",
+              "title": "Phone Voice Clarity",
+              "instruction": "Practice phone voice with appropriate volume and clarity",
+              "content": "Hello, this is Sarah calling. Could I speak with the manager please? I have a question about my account.",
+              "voice_target": "phone_appropriate",
+              "duration_seconds": 55,
+              "tips": "Phone conversations need slightly more volume and clarity"
+            },
+            {
+              "id": "VCP_008",
+              "difficulty": 2,
+              "scenario": "storytelling_voice",
+              "title": "Narrative Voice Variety",
+              "instruction": "Tell a story using different voices for different parts",
+              "content": "Once upon a time... [gentle voice] there was a loud giant... [deep voice] and a tiny mouse... [soft voice] who became friends.",
+              "voice_target": "character_voices",
+              "duration_seconds": 60,
+              "tips": "Use voice changes to make stories more engaging"
+            },
+            {
+              "id": "VCP_009",
+              "difficulty": 1,
+              "scenario": "agreement_disagreement",
+              "title": "Yes and No Variations",
+              "instruction": "Say yes and no with different emotions and pitch patterns",
+              "content": "Yes! [excited] Yes. [calm] No! [firm] No... [disappointed] Maybe? [uncertain]",
+              "voice_target": "emotional_variety",
+              "duration_seconds": 40,
+              "tips": "Let your voice show your feelings"
+            },
+            {
+              "id": "VCP_010",
+              "difficulty": 3,
+              "scenario": "presentation_voice",
+              "title": "Public Speaking Voice",
+              "instruction": "Practice speaking to a group with appropriate projection and variation",
+              "content": "Good morning everyone. Today I want to share some exciting news. Our project has been very successful.",
+              "voice_target": "public_speaking",
+              "duration_seconds": 55,
+              "tips": "Project your voice without shouting, vary your pitch"
+            },
+            {
+              "id": "VCP_011",
+              "difficulty": 2,
+              "scenario": "comforting_voice",
+              "title": "Soothing Speech",
+              "instruction": "Practice speaking in a comforting, gentle tone",
+              "content": "Everything will be okay. Don't worry about it. You're doing great. I'm here to help.",
+              "voice_target": "comforting_tone",
+              "duration_seconds": 45,
+              "tips": "Use a lower, softer voice for comfort"
+            },
+            {
+              "id": "VCP_012",
+              "difficulty": 4,
+              "scenario": "argument_control",
+              "title": "Controlled Disagreement",
+              "instruction": "Express disagreement firmly but respectfully without raising voice",
+              "content": "I disagree with that point. I see it differently. That's not quite right. Let me explain my view.",
+              "voice_target": "assertive_controlled",
+              "duration_seconds": 50,
+              "tips": "Stay firm but avoid aggressive volume or pitch"
+            },
+            {
+              "id": "VCP_013",
+              "difficulty": 1,
+              "scenario": "calling_attention",
+              "title": "Getting Attention",
+              "instruction": "Practice calling someone's attention appropriately",
+              "content": "Excuse me! [polite] Hey there! [friendly] Attention please! [formal] Over here! [casual]",
+              "voice_target": "attention_getting",
+              "duration_seconds": 35,
+              "tips": "Match your voice to the social situation"
+            },
+            {
+              "id": "VCP_014",
+              "difficulty": 2,
+              "scenario": "reading_aloud",
+              "title": "Expressive Reading",
+              "instruction": "Read with expression, varying your voice for punctuation",
+              "content": "What a beautiful day! The sun is shining. Are we going to the park? I hope so...",
+              "voice_target": "punctuation_expression",
+              "duration_seconds": 45,
+              "tips": "Let punctuation guide your voice changes"
+            },
+            {
+              "id": "VCP_015",
+              "difficulty": 3,
+              "scenario": "customer_service",
+              "title": "Professional Service Voice",
+              "instruction": "Practice customer service voice - friendly, helpful, clear",
+              "content": "Good morning! How can I help you today? I'd be happy to assist you. Is there anything else?",
+              "voice_target": "service_professional",
+              "duration_seconds": 50,
+              "tips": "Sound helpful and approachable through your voice"
+            },
+            {
+              "id": "VCP_016",
+              "difficulty": 2,
+              "scenario": "surprise_expression",
+              "title": "Showing Surprise",
+              "instruction": "Express surprise with appropriate voice changes",
+              "content": "Really? [curious] Oh my! [surprised] I can't believe it! [amazed] No way! [shocked]",
+              "voice_target": "surprise_expression",
+              "duration_seconds": 40,
+              "tips": "Use pitch jumps and volume changes to show surprise"
+            },
+            {
+              "id": "VCP_017",
+              "difficulty": 4,
+              "scenario": "teaching_voice",
+              "title": "Educational Instruction",
+              "instruction": "Practice teaching voice with clear emphasis and variation",
+              "content": "First, remember this key point. Second, notice the difference here. Finally, let's review what we learned.",
+              "voice_target": "instructional_clear",
+              "duration_seconds": 60,
+              "tips": "Emphasize important words and use pauses effectively"
+            },
+            {
+              "id": "VCP_018",
+              "difficulty": 1,
+              "scenario": "greeting_variety",
+              "title": "Different Greeting Styles",
+              "instruction": "Say greetings with different energy levels and tones",
+              "content": "Hi there! [energetic] Good morning. [calm] Hello friend. [warm] Hey! [casual]",
+              "voice_target": "greeting_variety",
+              "duration_seconds": 35,
+              "tips": "Match your voice energy to your relationship with the person"
+            },
+            {
+              "id": "VCP_019",
+              "difficulty": 3,
+              "scenario": "describing_emotions",
+              "title": "Emotional Description",
+              "instruction": "Describe feelings while showing them in your voice",
+              "content": "I'm feeling happy today. I'm a bit worried about tomorrow. I'm excited about the weekend. I'm tired right now.",
+              "voice_target": "emotion_matching",
+              "duration_seconds": 55,
+              "tips": "Let your voice match the emotion you're describing"
+            },
+            {
+              "id": "VCP_020",
+              "difficulty": 2,
+              "scenario": "giving_compliments",
+              "title": "Sincere Compliments",
+              "instruction": "Give compliments with warm, genuine voice tone",
+              "content": "You look wonderful today. That was really well done. I'm impressed with your work. You have a great smile.",
+              "voice_target": "compliment_warmth",
+              "duration_seconds": 50,
+              "tips": "Compliments should sound warm and genuine"
+            }
+          ]
+        }
       }
-    ],
-    
-    "word_recall": [
-      {
-        "id": "recall_001",
-        "title": "Category Naming - Animals",
-        "difficulty": "beginner", 
-        "duration_minutes": 2,
-        "instructions": "I want you to name as many animals as you can think of. Take your time, and say each animal clearly. Ready?",
-        "content": "Animals",
-        "coaching_prompts": [
-          "Take your time thinking",
-          "Speak clearly for each animal",
-          "Great! Can you think of any more?",
-          "Excellent word finding!"
-        ],
-        "assessment_criteria": ["word retrieval speed", "category accuracy", "clarity of production"]
-      },
-      {
-        "id": "recall_002",
-        "title": "Semantic Fluency - Kitchen Items",
-        "difficulty": "intermediate",
-        "duration_minutes": 3,
-        "instructions": "Name things you would find in a kitchen. Try to think of at least 8 items. Speak each one clearly.",
-        "content": "Kitchen items",
-        "coaching_prompts": [
-          "Think about different areas of the kitchen",
-          "What do you use for cooking?",
-          "Don't forget about appliances",
-          "You're doing great with word finding"
-        ],
-        "assessment_criteria": ["semantic organization", "word retrieval", "response time"]
-      }
-    ],
-    
-    "pronunciation": [
-      {
-        "id": "pronunciation_001",
-        "title": "Consonant Practice - P, B, T, D",
-        "difficulty": "beginner",
-        "duration_minutes": 4,
-        "instructions": "We're going to practice clear consonant sounds. I'll give you word pairs. Repeat each word clearly, making sure the beginning sounds are distinct.",
-        "content": [
-          "Pat - Bat",
-          "Top - Drop", 
-          "Pie - Buy",
-          "Tin - Din"
-        ],
-        "coaching_prompts": [
-          "Make sure your lips come together firmly for P and B",
-          "Feel your tongue touch the roof of your mouth for T and D",
-          "Great distinction between those sounds!",
-          "Your articulation is improving"
-        ],
-        "assessment_criteria": ["consonant clarity", "sound distinction", "articulatory precision"]
-      },
-      {
-        "id": "pronunciation_002",
-        "title": "Vowel Clarity Practice",
-        "difficulty": "intermediate",
-        "duration_minutes": 3,
-        "instructions": "Let's work on clear vowel sounds. I'll give you word pairs that differ only in the vowel sound. Repeat each pair, making the vowel sounds very distinct.",
-        "content": [
-          "Beat - Bit",
-          "Coat - Cut", 
-          "Seat - Set",
-          "Boot - But"
-        ],
-        "coaching_prompts": [
-          "Open your mouth more for the first vowel",
-          "Feel the difference in your tongue position",
-          "Excellent vowel distinction!",
-          "Your vowel clarity is really improving"
-        ],
-        "assessment_criteria": ["vowel clarity", "sound differentiation", "mouth positioning"]
-      }
-    ]
-  },
-  
-  "difficulty_progression": {
-    "beginner": {
-      "description": "Simple, short exercises with clear instructions",
-      "target_duration": "2-4 minutes",
-      "success_criteria": "70% accuracy"
-    },
-    "intermediate": {
-      "description": "Moderate complexity with multiple components", 
-      "target_duration": "4-6 minutes",
-      "success_criteria": "80% accuracy"
-    },
-    "advanced": {
-      "description": "Complex exercises with challenging content",
-      "target_duration": "6-10 minutes", 
-      "success_criteria": "85% accuracy"
     }
   }
-}
