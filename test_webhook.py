@@ -74,11 +74,14 @@ def test_webhook():
     print(f"📡 Sending POST request to: {webhook_url}")
     
     try:
-        # Send the test webhook
+        # Send the test webhook with signature header (for testing)
         response = requests.post(
             webhook_url,
             json=sample_transcription_webhook,
-            headers={"Content-Type": "application/json"}
+            headers={
+                "Content-Type": "application/json",
+                "elevenlabs-signature": "t=1234567890,v0=test_signature_for_testing"
+            }
         )
         
         print(f"📊 Response Status: {response.status_code}")
