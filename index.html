@@ -17,7 +17,7 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 1fr 400px;
+            grid-template-columns: 400px 1fr;
             gap: 20px;
             height: calc(100vh - 40px);
         }
@@ -150,6 +150,131 @@
             margin-top: 8px;
         }
 
+        .detailed-metric-section {
+            margin: 15px 0;
+            padding: 12px;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .section-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 4px 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-size: 12px;
+            color: #4a5568;
+            flex: 1;
+        }
+        
+        .metric-value {
+            font-weight: bold;
+            color: #2d3748;
+            font-size: 12px;
+        }
+        
+        .metric-status {
+            margin-left: 8px;
+            font-size: 11px;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-weight: bold;
+        }
+        
+        .status-excellent {
+            background: #c6f6d5;
+            color: #22543d;
+        }
+        
+        .status-good {
+            background: #bee3f8;
+            color: #2a4365;
+        }
+        
+        .status-needs-work {
+            background: #fed7d7;
+            color: #c53030;
+        }
+        
+        .status-concern {
+            background: #fbb6ce;
+            color: #97266d;
+        }
+        
+        .summary-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 8px;
+            margin: 12px 0;
+        }
+        
+        .summary-item {
+            background: white;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .summary-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2d3748;
+        }
+        
+        .summary-label {
+            font-size: 10px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-top: 2px;
+        }
+        
+        .segment-detail {
+            margin: 8px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 6px;
+            border-left: 2px solid #a0aec0;
+        }
+        
+        .segment-text {
+            font-style: italic;
+            color: #4a5568;
+            font-size: 11px;
+            margin-bottom: 6px;
+            line-height: 1.3;
+        }
+        
+        .segment-metrics {
+            display: flex;
+            gap: 12px;
+            font-size: 10px;
+        }
+        
+        .segment-metric {
+            color: #718096;
+        }
+
         @media (max-width: 768px) {
             .container {
                 grid-template-columns: 1fr;
@@ -160,25 +285,18 @@
                 order: -1;
                 max-height: 300px;
             }
+            
+            .summary-grid {
+                grid-template-columns: 1fr 1fr;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="voice-section">
-            <h1 style="color: #2d3748; margin-bottom: 10px; text-align: center;">🎙️ SpeechWell</h1>
-            <p style="color: #718096; text-align: center; margin-bottom: 30px;">Voice-powered speech therapy assistant</p>
-            
-            <elevenlabs-convai agent-id="agent_8201k30y217yerkv9bzwekpsn5bt"></elevenlabs-convai>
-            
-            <p style="color: #718096; font-size: 14px; text-align: center; margin-top: 20px;">
-                Start a conversation with your AI speech therapist. Results will appear in the panel →
-            </p>
-        </div>
-        
         <div class="results-panel">
             <div class="results-header">
-                <h3 style="margin: 0; color: #2d3748;">📊 Live Results</h3>
+                <h3 style="margin: 0; color: #2d3748;">📊 Detailed Speech Analysis</h3>
                 <div style="display: flex; align-items: center; gap: 10px;">
                     <span id="status" style="font-size: 12px; color: #718096;">
                         <span class="status-indicator status-disconnected"></span>
@@ -192,10 +310,21 @@
                 <div class="no-results">
                     <p>🎯 No analysis results yet</p>
                     <p style="font-size: 12px; margin-top: 10px;">
-                        Start a conversation to see your speech analysis appear here in real-time!
+                        Start a conversation to see your detailed speech analysis appear here!
                     </p>
                 </div>
             </div>
+        </div>
+        
+        <div class="voice-section">
+            <h1 style="color: #2d3748; margin-bottom: 10px; text-align: center;">🎙️ SpeechWell</h1>
+            <p style="color: #718096; text-align: center; margin-bottom: 30px;">Voice-powered speech therapy assistant</p>
+            
+            <elevenlabs-convai agent-id="agent_8201k30y217yerkv9bzwekpsn5bt"></elevenlabs-convai>
+            
+            <p style="color: #718096; font-size: 14px; text-align: center; margin-top: 20px;">
+                ← Your detailed analysis results will appear in the panel on the left
+            </p>
         </div>
     </div>
 
@@ -229,7 +358,7 @@
                 const data = await response.json();
                 
                 if (data.status === 'success') {
-                    displayResult(data.result);
+                    displayDetailedResult(data.result);
                     updateStatus('connected', 'Connected');
                     
                     // Store in localStorage
@@ -245,69 +374,194 @@
                 const stored = localStorage.getItem('speechwell_latest_result');
                 if (stored) {
                     const result = JSON.parse(stored);
-                    displayResult(result);
+                    displayDetailedResult(result);
                     updateStatus('disconnected', 'Offline (cached)');
                 }
             }
         }
         
-        // Display a result in the panel
-        function displayResult(result) {
+        // Helper function to format call duration
+        function formatCallDuration(timestamp, totalDuration) {
+            if (totalDuration && totalDuration > 0) {
+                const minutes = Math.floor(totalDuration / 60);
+                const seconds = Math.round(totalDuration % 60);
+                return minutes > 0 ? `${minutes}m ${seconds}s` : `${seconds}s`;
+            }
+            return 'Unknown';
+        }
+        
+        // Helper function to get status class based on score
+        function getStatusClass(score, thresholds = {excellent: 85, good: 70, needsWork: 50}) {
+            if (score >= thresholds.excellent) return 'status-excellent';
+            if (score >= thresholds.good) return 'status-good';
+            if (score >= thresholds.needsWork) return 'status-needs-work';
+            return 'status-concern';
+        }
+        
+        // Helper function to get status text
+        function getStatusText(score, thresholds = {excellent: 85, good: 70, needsWork: 50}) {
+            if (score >= thresholds.excellent) return 'Excellent';
+            if (score >= thresholds.good) return 'Good';
+            if (score >= thresholds.needsWork) return 'Needs Work';
+            return 'Concern';
+        }
+        
+        // Enhanced detailed result display
+        function displayDetailedResult(result) {
             const analysis = result.analysis;
             const timestamp = new Date(result.timestamp).toLocaleString();
-            
-            // Calculate averages from segments
             const segments = analysis.segments || [];
-            let avgClarity = 0, avgFluency = 0, avgCompletion = 0;
             
-            if (segments.length > 0) {
-                avgClarity = segments.reduce((sum, seg) => sum + seg.communication_effectiveness.message_clarity_score, 0) / segments.length;
-                avgFluency = segments.reduce((sum, seg) => sum + seg.verbal_fluency.overall_fluency_score, 0) / segments.length;
-                avgCompletion = segments.reduce((sum, seg) => sum + seg.communication_effectiveness.sentence_completion_rate, 0) / segments.length;
+            if (segments.length === 0) {
+                document.getElementById('results-content').innerHTML = '<div class="no-results">No speech segments found</div>';
+                return;
             }
             
-            // Generate challenges summary
-            const challenges = [];
+            // Calculate comprehensive metrics
+            let totals = {
+                clarity: 0, fluency: 0, completion: 0,
+                speechRate: 0, wordReps: 0, fillers: 0, 
+                corrections: 0, pauses: 0, avgSentenceLength: 0
+            };
+            
             segments.forEach(seg => {
-                const segChallenges = seg.communication_challenges || {};
-                Object.keys(segChallenges).forEach(challenge => {
-                    if (segChallenges[challenge] && !challenges.includes(challenge)) {
-                        challenges.push(challenge.replace(/_/g, ' '));
-                    }
-                });
+                totals.clarity += seg.communication_effectiveness.message_clarity_score;
+                totals.fluency += seg.verbal_fluency.overall_fluency_score;
+                totals.completion += seg.communication_effectiveness.sentence_completion_rate;
+                totals.speechRate += seg.speech_rate_wpm;
+                totals.wordReps += seg.language_patterns.word_repetitions;
+                totals.fillers += seg.language_patterns.filler_words;
+                totals.corrections += seg.language_patterns.self_corrections;
+                totals.pauses += seg.pause_count;
+                totals.avgSentenceLength += seg.communication_effectiveness.average_sentence_length;
             });
+            
+            // Calculate averages
+            const avgMetrics = {
+                clarity: Math.round(totals.clarity / segments.length),
+                fluency: Math.round(totals.fluency / segments.length),
+                completion: Math.round(totals.completion / segments.length),
+                speechRate: Math.round(totals.speechRate / segments.length),
+                avgSentenceLength: (totals.avgSentenceLength / segments.length).toFixed(1)
+            };
+            
+            // Overall speech rate assessment
+            const overallSpeechRate = analysis.total_duration > 0 ? 
+                Math.round((analysis.total_words / analysis.total_duration) * 60) : avgMetrics.speechRate;
+            
+            // Format call duration
+            const callDuration = formatCallDuration(result.timestamp, analysis.total_duration);
             
             const html = `
                 <div class="result-item">
-                    <div class="result-timestamp">Latest Analysis • ${timestamp}</div>
+                    <div class="result-timestamp">📊 Detailed Analysis • ${timestamp}</div>
                     
-                    <div class="score-grid">
-                        <div class="score-item">
-                            <div class="score-value">${Math.round(avgClarity)}</div>
-                            <div class="score-label">Clarity</div>
+                    <!-- Quick Summary -->
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <div class="summary-value" style="color: ${avgMetrics.clarity >= 85 ? '#22543d' : avgMetrics.clarity >= 70 ? '#2a4365' : '#c53030'}">${avgMetrics.clarity}</div>
+                            <div class="summary-label">Clarity Score</div>
                         </div>
-                        <div class="score-item">
-                            <div class="score-value">${Math.round(avgFluency)}</div>
-                            <div class="score-label">Fluency</div>
+                        <div class="summary-item">
+                            <div class="summary-value" style="color: ${avgMetrics.fluency >= 85 ? '#22543d' : avgMetrics.fluency >= 70 ? '#2a4365' : '#c53030'}">${avgMetrics.fluency}</div>
+                            <div class="summary-label">Fluency Score</div>
                         </div>
-                        <div class="score-item">
-                            <div class="score-value">${Math.round(avgCompletion)}%</div>
-                            <div class="score-label">Completion</div>
-                        </div>
-                        <div class="score-item">
-                            <div class="score-value">${analysis.total_words || 0}</div>
-                            <div class="score-label">Words</div>
+                        <div class="summary-item">
+                            <div class="summary-value" style="color: ${avgMetrics.completion >= 85 ? '#22543d' : avgMetrics.completion >= 70 ? '#2a4365' : '#c53030'}">${avgMetrics.completion}%</div>
+                            <div class="summary-label">Completion Rate</div>
                         </div>
                     </div>
                     
-                    ${challenges.length > 0 ? `
-                        <div class="challenges">
-                            <strong>Challenges:</strong> ${challenges.slice(0, 3).join(', ')}
+                    <!-- Speech Rate & Timing -->
+                    <div class="detailed-metric-section">
+                        <div class="section-title">🕐 Speech Rate & Timing</div>
+                        <div class="metric-row">
+                            <span class="metric-label">Call Duration</span>
+                            <span class="metric-value">${callDuration}</span>
+                            <span class="metric-status status-good">${segments.length} segments</span>
                         </div>
-                    ` : '<div style="color: #48bb78; font-size: 12px; padding: 8px;">✅ No significant challenges detected</div>'}
+                        <div class="metric-row">
+                            <span class="metric-label">Overall Speech Rate</span>
+                            <span class="metric-value">${overallSpeechRate} WPM</span>
+                            <span class="metric-status ${getStatusClass(overallSpeechRate, {excellent: 150, good: 100, needsWork: 80})}">${getStatusText(overallSpeechRate, {excellent: 150, good: 100, needsWork: 80})}</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Total Speaking Time</span>
+                            <span class="metric-value">${analysis.total_duration.toFixed(1)}s</span>
+                            <span class="metric-status status-good">${analysis.total_words} words</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Speech Density</span>
+                            <span class="metric-value">${(analysis.total_words / Math.max(analysis.total_duration, 1)).toFixed(1)} words/sec</span>
+                            <span class="metric-status ${analysis.total_words / analysis.total_duration >= 2 ? 'status-excellent' : 'status-good'}">Steady</span>
+                        </div>
+                    </div>
                     
+                    <!-- Communication Quality -->
+                    <div class="detailed-metric-section">
+                        <div class="section-title">💬 Communication Quality</div>
+                        <div class="metric-row">
+                            <span class="metric-label">Message Clarity</span>
+                            <span class="metric-value">${avgMetrics.clarity}/100</span>
+                            <span class="metric-status ${getStatusClass(avgMetrics.clarity)}">${getStatusText(avgMetrics.clarity)}</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Sentence Completion</span>
+                            <span class="metric-value">${avgMetrics.completion}%</span>
+                            <span class="metric-status ${getStatusClass(avgMetrics.completion)}">${getStatusText(avgMetrics.completion)}</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Average Sentence Length</span>
+                            <span class="metric-value">${avgMetrics.avgSentenceLength} words</span>
+                            <span class="metric-status ${parseFloat(avgMetrics.avgSentenceLength) >= 6 ? 'status-excellent' : parseFloat(avgMetrics.avgSentenceLength) >= 4 ? 'status-good' : 'status-needs-work'}">${parseFloat(avgMetrics.avgSentenceLength) >= 6 ? 'Complex' : parseFloat(avgMetrics.avgSentenceLength) >= 4 ? 'Good' : 'Simple'}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Fluency Analysis -->
+                    <div class="detailed-metric-section">
+                        <div class="section-title">🌊 Fluency Analysis</div>
+                        <div class="metric-row">
+                            <span class="metric-label">Overall Fluency</span>
+                            <span class="metric-value">${avgMetrics.fluency}/100</span>
+                            <span class="metric-status ${getStatusClass(avgMetrics.fluency)}">${getStatusText(avgMetrics.fluency)}</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Word Repetitions</span>
+                            <span class="metric-value">${totals.wordReps}</span>
+                            <span class="metric-status ${totals.wordReps === 0 ? 'status-excellent' : totals.wordReps <= 2 ? 'status-good' : 'status-needs-work'}">${totals.wordReps === 0 ? 'None' : totals.wordReps <= 2 ? 'Minimal' : 'Frequent'}</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Filler Words</span>
+                            <span class="metric-value">${totals.fillers}</span>
+                            <span class="metric-status ${totals.fillers === 0 ? 'status-excellent' : totals.fillers <= 3 ? 'status-good' : 'status-needs-work'}">${totals.fillers === 0 ? 'None' : totals.fillers <= 3 ? 'Few' : 'Many'}</span>
+                        </div>
+                        <div class="metric-row">
+                            <span class="metric-label">Self-Corrections</span>
+                            <span class="metric-value">${totals.corrections}</span>
+                            <span class="metric-status ${totals.corrections === 0 ? 'status-excellent' : totals.corrections <= 1 ? 'status-good' : 'status-needs-work'}">${totals.corrections === 0 ? 'None' : totals.corrections <= 1 ? 'Minimal' : 'Frequent'}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Segment-by-Segment Breakdown -->
+                    <div class="detailed-metric-section">
+                        <div class="section-title">📝 Speech Segments (${segments.length})</div>
+                        ${segments.map((seg, i) => `
+                            <div class="segment-detail">
+                                <div class="segment-text">"${seg.text.length > 60 ? seg.text.substring(0, 60) + '...' : seg.text}"</div>
+                                <div class="segment-metrics">
+                                    <span class="segment-metric">🎯 ${Math.round(seg.communication_effectiveness.message_clarity_score)}/100</span>
+                                    <span class="segment-metric">🌊 ${Math.round(seg.verbal_fluency.overall_fluency_score)}/100</span>
+                                    <span class="segment-metric">⏱️ ${seg.speech_rate_wpm.toFixed(0)} WPM</span>
+                                    <span class="segment-metric">📏 ${seg.word_count} words</span>
+                                </div>
+                            </div>
+                        `).join('')}
+                    </div>
+                    
+                    <!-- Detailed Recommendations -->
                     <div class="recommendations">
-                        <strong>Keep practicing:</strong> ${getRecommendations(avgClarity, avgFluency, avgCompletion)}
+                        <strong>🎯 Personalized Recommendations:</strong><br>
+                        ${getDetailedRecommendations(avgMetrics, totals, analysis)}
                     </div>
                 </div>
             `;
@@ -315,16 +569,55 @@
             document.getElementById('results-content').innerHTML = html;
         }
         
-        // Generate recommendations based on scores
-        function getRecommendations(clarity, fluency, completion) {
+        // Enhanced recommendations based on detailed metrics
+        function getDetailedRecommendations(avgMetrics, totals, analysis) {
             const recs = [];
             
-            if (clarity < 70) recs.push("sentence structure");
-            if (fluency < 70) recs.push("smooth speech flow");  
-            if (completion < 70) recs.push("completing thoughts");
+            // Speech rate recommendations
+            const overallRate = analysis.total_duration > 0 ? 
+                (analysis.total_words / analysis.total_duration) * 60 : avgMetrics.speechRate;
+                
+            if (overallRate < 100) {
+                recs.push("• Try speaking slightly faster - aim for 120-150 words per minute");
+            } else if (overallRate > 200) {
+                recs.push("• Slow down slightly for better clarity - aim for 120-180 words per minute");
+            }
             
-            if (recs.length === 0) return "Continue excellent progress!";
-            return recs.join(", ");
+            // Clarity recommendations
+            if (avgMetrics.clarity < 70) {
+                recs.push("• Focus on articulating each word clearly");
+                recs.push("• Practice speaking more slowly to improve clarity");
+            }
+            
+            // Fluency recommendations
+            if (avgMetrics.fluency < 70) {
+                recs.push("• Practice smooth, continuous speech flow");
+            }
+            
+            if (totals.wordReps > 2) {
+                recs.push("• Work on reducing word repetitions - pause and think before speaking");
+            }
+            
+            if (totals.fillers > 3) {
+                recs.push("• Practice eliminating filler words (um, uh, like)");
+            }
+            
+            if (avgMetrics.completion < 80) {
+                recs.push("• Focus on completing full sentences before moving to next thought");
+            }
+            
+            if (parseFloat(avgMetrics.avgSentenceLength) < 4) {
+                recs.push("• Try using longer, more complex sentences");
+            }
+            
+            // Positive reinforcement
+            if (avgMetrics.clarity >= 85 && avgMetrics.fluency >= 85 && avgMetrics.completion >= 85) {
+                recs.push("🌟 Excellent performance across all metrics! Keep up the great work!");
+            } else if (avgMetrics.clarity >= 70 && avgMetrics.fluency >= 70) {
+                recs.push("✅ Good overall performance - continue practicing to maintain consistency");
+            }
+            
+            return recs.length > 0 ? recs.join('<br>') : "Continue your excellent progress!";
         }
         
         // Auto-polling for new results
@@ -346,7 +639,7 @@
             if (stored) {
                 try {
                     const result = JSON.parse(stored);
-                    displayResult(result);
+                    displayDetailedResult(result);
                     updateStatus('disconnected', 'Cached result');
                 } catch (e) {
                     console.error('Error loading cached result:', e);
@@ -367,4 +660,4 @@
         });
     </script>
 </body>
-</html> 
+</html>
