@@ -3,10 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SpeechWell - Voice Agent</title>
+    <title>SpeechWell - Voice Agent with Live Results</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+            height: calc(100vh - 40px);
+        }
+        
+        .voice-section {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .results-panel {
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow-y: auto;
+        }
+        
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .refresh-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .refresh-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-1px);
+        }
+        
+        .status-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 8px;
+        }
+        
+        .status-connected { background: #48bb78; }
+        .status-disconnected { background: #f56565; }
+        .status-loading { background: #ed8936; animation: pulse 1.5s infinite; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .score-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .score-item {
+            background: #f8f9ff;
+            padding: 12px;
+            border-radius: 10px;
+            text-align: center;
+            border-left: 4px solid #667eea;
+        }
+        
+        .score-value {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2d3748;
+            margin-bottom: 4px;
+        }
+        
+        .score-label {
+            font-size: 12px;
+            color: #718096;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .no-results {
+            text-align: center;
+            color: #718096;
+            padding: 40px 20px;
+        }
+        
+        .result-item {
+            background: #f8f9ff;
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .result-timestamp {
+            font-size: 12px;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+        
+        .challenges {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .recommendations {
+            background: #e6fffa;
+            color: #2c7a7b;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                height: auto;
+            }
+            
+            .results-panel {
+                order: -1;
+                max-height: 300px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <elevenlabs-convai agent-id="agent_8201k30y217yerkv9bzwekpsn5bt"></elevenlabs-convai>
+    <div class="container">
+        <div class="voice-section">
+            <h1 style="color: #2d3748; margin-bottom: 10px; text-align: center;">🎙️ SpeechWell</h1>
+            <p style="color: #718096; text-align: center; margin-bottom: 30px;">Voice-powered speech therapy assistant</p>
+            
+            <elevenlabs-convai agent-id="agent_8201k30y217yerkv9bzwekpsn5bt"></elevenlabs-convai>
+            
+            <p style="color: #718096; font-size: 14px; text-align: center; margin-top: 20px;">
+                Start a conversation with your AI speech therapist. Results will appear in the panel →
+            </p>
+        </div>
+        
+        <div class="results-panel">
+            <div class="results-header">
+                <h3 style="margin: 0; color: #2d3748;">📊 Live Results</h3>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <span id="status" style="font-size: 12px; color: #718096;">
+                        <span class="status-indicator status-disconnected"></span>
+                        Waiting...
+                    </span>
+                    <button class="refresh-btn" onclick="fetchLatestResults()">Refresh</button>
+                </div>
+            </div>
+            
+            <div id="results-content">
+                <div class="no-results">
+                    <p>🎯 No analysis results yet</p>
+                    <p style="font-size: 12px; margin-top: 10px;">
+                        Start a conversation to see your speech analysis appear here in real-time!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script
         src="https://unpkg.com/@elevenlabs/convai-widget-embed"
@@ -16,9 +207,156 @@
     </script>
 
     <script>
-        // Ensure proper audio context initialization
+        // Configuration
+        const API_BASE = 'http://localhost:8000';
+        let isPolling = false;
+        
+        // Status management
+        function updateStatus(status, message) {
+            const statusEl = document.getElementById('status');
+            const indicator = statusEl.querySelector('.status-indicator');
+            
+            indicator.className = `status-indicator status-${status}`;
+            statusEl.innerHTML = `${indicator.outerHTML}${message}`;
+        }
+        
+        // Fetch latest results from API
+        async function fetchLatestResults() {
+            try {
+                updateStatus('loading', 'Fetching...');
+                
+                const response = await fetch(`${API_BASE}/api/latest-result`);
+                const data = await response.json();
+                
+                if (data.status === 'success') {
+                    displayResult(data.result);
+                    updateStatus('connected', 'Connected');
+                    
+                    // Store in localStorage
+                    localStorage.setItem('speechwell_latest_result', JSON.stringify(data.result));
+                } else {
+                    updateStatus('connected', 'No results yet');
+                }
+            } catch (error) {
+                console.error('Error fetching results:', error);
+                updateStatus('disconnected', 'Connection error');
+                
+                // Try to load from localStorage
+                const stored = localStorage.getItem('speechwell_latest_result');
+                if (stored) {
+                    const result = JSON.parse(stored);
+                    displayResult(result);
+                    updateStatus('disconnected', 'Offline (cached)');
+                }
+            }
+        }
+        
+        // Display a result in the panel
+        function displayResult(result) {
+            const analysis = result.analysis;
+            const timestamp = new Date(result.timestamp).toLocaleString();
+            
+            // Calculate averages from segments
+            const segments = analysis.segments || [];
+            let avgClarity = 0, avgFluency = 0, avgCompletion = 0;
+            
+            if (segments.length > 0) {
+                avgClarity = segments.reduce((sum, seg) => sum + seg.communication_effectiveness.message_clarity_score, 0) / segments.length;
+                avgFluency = segments.reduce((sum, seg) => sum + seg.verbal_fluency.overall_fluency_score, 0) / segments.length;
+                avgCompletion = segments.reduce((sum, seg) => sum + seg.communication_effectiveness.sentence_completion_rate, 0) / segments.length;
+            }
+            
+            // Generate challenges summary
+            const challenges = [];
+            segments.forEach(seg => {
+                const segChallenges = seg.communication_challenges || {};
+                Object.keys(segChallenges).forEach(challenge => {
+                    if (segChallenges[challenge] && !challenges.includes(challenge)) {
+                        challenges.push(challenge.replace(/_/g, ' '));
+                    }
+                });
+            });
+            
+            const html = `
+                <div class="result-item">
+                    <div class="result-timestamp">Latest Analysis • ${timestamp}</div>
+                    
+                    <div class="score-grid">
+                        <div class="score-item">
+                            <div class="score-value">${Math.round(avgClarity)}</div>
+                            <div class="score-label">Clarity</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-value">${Math.round(avgFluency)}</div>
+                            <div class="score-label">Fluency</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-value">${Math.round(avgCompletion)}%</div>
+                            <div class="score-label">Completion</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-value">${analysis.total_words || 0}</div>
+                            <div class="score-label">Words</div>
+                        </div>
+                    </div>
+                    
+                    ${challenges.length > 0 ? `
+                        <div class="challenges">
+                            <strong>Challenges:</strong> ${challenges.slice(0, 3).join(', ')}
+                        </div>
+                    ` : '<div style="color: #48bb78; font-size: 12px; padding: 8px;">✅ No significant challenges detected</div>'}
+                    
+                    <div class="recommendations">
+                        <strong>Keep practicing:</strong> ${getRecommendations(avgClarity, avgFluency, avgCompletion)}
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('results-content').innerHTML = html;
+        }
+        
+        // Generate recommendations based on scores
+        function getRecommendations(clarity, fluency, completion) {
+            const recs = [];
+            
+            if (clarity < 70) recs.push("sentence structure");
+            if (fluency < 70) recs.push("smooth speech flow");  
+            if (completion < 70) recs.push("completing thoughts");
+            
+            if (recs.length === 0) return "Continue excellent progress!";
+            return recs.join(", ");
+        }
+        
+        // Auto-polling for new results
+        function startPolling() {
+            if (isPolling) return;
+            isPolling = true;
+            
+            // Initial fetch
+            fetchLatestResults();
+            
+            // Poll every 10 seconds
+            setInterval(fetchLatestResults, 10000);
+        }
+        
+        // Initialize app
         document.addEventListener('DOMContentLoaded', function() {
-            // Wait for user interaction before initializing audio context
+            // Load cached result on page load
+            const stored = localStorage.getItem('speechwell_latest_result');
+            if (stored) {
+                try {
+                    const result = JSON.parse(stored);
+                    displayResult(result);
+                    updateStatus('disconnected', 'Cached result');
+                } catch (e) {
+                    console.error('Error loading cached result:', e);
+                }
+            }
+            
+            // Start polling for new results
+            setTimeout(startPolling, 2000);
+            
+            // Audio context initialization
             document.addEventListener('click', function initAudio() {
                 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 if (audioContext.state === 'suspended') {
@@ -29,4 +367,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
